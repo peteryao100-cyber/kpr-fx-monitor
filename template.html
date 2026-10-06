@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="color-scheme" content="dark light">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="FX 汇率">
+<meta name="description" content="FX Monitor 汇率监测 — 18 currency pairs, weekly grid, auto-updated">
+<link rel="icon" type="image/png" sizes="180x180" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>FX Monitor 汇率监测</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("fxmon.v1.theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<style>
+:root{--today:#1f5fbf;--bg:#f5f6f8;--card:#fff;--ink:#1d2433;--mute:#6b7385;--line:#e3e6ec;--up:#0a8f4e;--dn:#d0342c;--acc:#1f5fbf;--warn:#b86e00;--warnbg:#fff4e0;--alert:#c62828;--alertbg:#fdecea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC",sans-serif}
+.num,td.n,.rate{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.wrap{max-width:1440px;margin:0 auto;padding:14px 16px 28px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:4px}
+h1{font-size:20px;margin:0 0 2px;letter-spacing:.2px}
+h1 .proto{display:inline-block;font-size:11px;font-weight:600;background:#fff4e0;color:#8a5300;border:1px solid #f0c98a;border-radius:10px;padding:1px 8px;vertical-align:3px;margin-left:6px}
+.srcline{color:var(--mute);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:1180px}
+.srcline .tg{color:#8a5300}
+.srcline b{color:var(--ink);font-weight:600}
+.target{margin-top:3px;font-size:12px;color:#8a5300}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.controls label{font-size:12px;color:var(--mute);display:flex;align-items:center;gap:4px}
+input[type=number],input[type=text],select{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:6px;padding:4px 6px;background:#fff;color:var(--ink)}
+input.thr{width:56px;text-align:right}
+button{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--ink)}
+button:hover{border-color:var(--acc);color:var(--acc)}
+button.primary{background:var(--acc);color:#fff;border-color:var(--acc)}
+button.primary:hover{background:#174c9a;color:#fff}
+section{margin-top:12px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}
+.sechead h2{font-size:14px;margin:0}
+.sechead .sub{font-size:11.5px;color:var(--mute)}
+.mt2{margin-top:4px}
+/* business strip */
+.biz{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;position:sticky;top:0;z-index:5;background:var(--bg);padding:6px 0}
+.bcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;padding:7px 9px}
+.bcard .t{display:flex;justify-content:space-between;align-items:baseline}
+.bcard .pair{font-weight:700;font-size:13.5px}
+.bcard .ent{font-size:11px;color:var(--mute)}
+.bcard .val{font-size:18px;font-weight:650;margin-top:1px}
+.bcard .chg{font-size:12px;margin-left:6px;font-weight:600}
+.bcard .brow{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:11.5px;color:var(--mute)}
+.bcard .brow input{width:84px;text-align:right}
+.bcard .var{font-weight:600}
+/* week nav */
+.weeknav{display:flex;align-items:center;gap:8px}
+.weeknav select{min-width:230px}
+.weekttl{font-weight:600}
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px}
+.cell{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 7px 6px;min-width:0}
+.cell.alert{border-color:#f0a39d;box-shadow:0 0 0 1px #f6c8c4 inset}
+.cell.spare{border-style:dashed;background:transparent;display:flex;align-items:center;justify-content:center;color:#a3a9b6;font-size:12px;min-height:200px}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:3px}
+.ch .p{font-weight:700;font-size:13.5px;white-space:nowrap}
+.badges{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
+.bdg{font-size:9.5px;font-weight:700;padding:0 4px;border-radius:4px;line-height:15px;white-space:nowrap}
+.bdg.mv{background:var(--alertbg);color:var(--alert)}
+.bdg.hi{background:#e6f4ec;color:#0a6b3c}
+.bdg.lo{background:#fdecea;color:#a3221b}
+.bdg.dv{background:#eef0f4;color:#6b7385}
+table.days{width:100%;border-collapse:collapse;font-size:12px}
+table.days td{padding:1px 0;white-space:nowrap}
+table.days td.d{color:var(--mute);font-size:11px;width:38px}
+table.days td.d .zh{color:#9aa1b0;margin-left:2px}
+table.days td.r{text-align:right;font-weight:600;padding-right:4px}
+table.days td.c{text-align:right;font-size:10.5px;width:52px}
+table.days tr.today td.r{color:var(--today)}
+.tdy{color:var(--today)}
+.ptag{color:#8a5300}
+.lbl2{font-size:12px;color:var(--mute)}
+.intro{font-size:12px;color:var(--mute);margin-bottom:10px}
+.spark .sl{fill:none;stroke-width:1.6}
+.spark .sf{opacity:.08}
+.spark.up .sl{stroke:var(--up)}.spark.up .sf{fill:var(--up)}
+.spark.dn .sl{stroke:var(--dn)}.spark.dn .sf{fill:var(--dn)}
+.themebtn{white-space:nowrap}
+table.days tr.nodata td.r,table.days tr.nodata td.c{color:#b6bcc8;font-weight:400}
+.up{color:var(--up)} .dn{color:var(--dn)} .fl{color:var(--mute)}
+.wm{display:flex;justify-content:space-between;font-size:11px;color:var(--mute);border-top:1px solid #eef0f3;margin-top:3px;padding-top:3px}
+.wm b{font-weight:650}
+.spark{display:block;width:100%;height:28px;margin-top:3px}
+.rng{margin-top:3px}
+.rng .bar{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,#fbe1df,#eef0f3 30%,#eef0f3 70%,#dcefe4)}
+.rng .mk{position:absolute;top:-3px;width:3px;height:12px;background:var(--ink);border-radius:2px;transform:translateX(-50%)}
+.rng .lbl{display:flex;justify-content:space-between;font-size:9.5px;color:#8b92a2;margin-top:2px}
+/* panels */
+.two{display:grid;grid-template-columns:1fr;gap:12px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{font-size:11px;color:var(--mute);font-weight:600;text-align:right;padding:4px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t th:first-child,table.t td:first-child{text-align:left}
+table.t td{padding:3px 6px;border-bottom:1px solid #f0f2f5;text-align:right;white-space:nowrap}
+table.t tr.flag td{background:var(--alertbg)}
+table.cc th,table.cc td{text-align:right;padding:3px 4px}
+table.cc td.flag{background:var(--alertbg)}
+.asum{font-size:12px;margin:0 0 6px;color:var(--mute)}.asum b{color:var(--ink)}
+.cell.near{border-color:#cfd8e6}
+table.t td.ok{color:var(--up);font-weight:600} table.t td.bad{color:var(--alert);font-weight:700}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary:before{content:"▸";display:inline-block;margin-right:6px;transition:transform .15s}
+details[open] summary:before{transform:rotate(90deg)}
+.mt{overflow-x:auto;margin-top:8px}
+table.m td .e{display:block;color:#8b92a2;font-size:10.5px}
+table.m th.cur,table.m td.cur{background:#f4f8ff}
+.legend{font-size:11.5px;color:var(--mute);margin-top:5px}
+nav.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin:6px 0 0}
+nav.tabs button{border:1px solid transparent;border-bottom:none;border-radius:8px 8px 0 0;background:transparent;padding:7px 18px;font-size:14px;font-weight:600;color:var(--mute);margin-bottom:-2px}
+nav.tabs button:hover{color:var(--acc);background:#eef3fb}
+nav.tabs button[aria-selected=true]{background:var(--card);color:var(--acc);border-color:var(--line);border-bottom:2px solid var(--card);box-shadow:inset 0 3px 0 var(--acc)}
+nav.tabs button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+nav.tabs .k{font-size:11px;color:#a3a9b6;font-weight:500;margin-left:6px}
+.page[hidden]{display:none}
+.pagebar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pagebar .controls{justify-content:flex-start}
+table.ccv{font-size:13px}
+table.ccv td,table.ccv th{padding:6px 10px}
+table.ccv td.legs{color:var(--mute);font-size:12px;text-align:left}
+table.ccv th.legs{text-align:left}
+table.ccv td.st{text-align:center} table.ccv th.st{text-align:center}
+.devbar{position:relative;width:160px;height:10px;background:#f1f3f6;border-radius:5px;display:inline-block;vertical-align:middle}
+.devbar .z{position:absolute;left:50%;top:-2px;width:1px;height:14px;background:#9aa1b0}
+.devbar .lim{position:absolute;top:0;height:10px;border-left:1px dashed #e0a39d}
+.devbar .f{position:absolute;top:1px;height:8px;border-radius:4px}
+.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:10px;padding:1px 9px}
+.pill.ok{background:#e6f4ec;color:#0a6b3c}.pill.bad{background:var(--alertbg);color:var(--alert)}.pill.calc{background:#eef0f4;color:#6b7385}
+.ccsum{display:flex;gap:10px;margin:0 0 10px}
+.ccsum .k{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;min-width:150px}
+.ccsum .k .v{font-size:20px;font-weight:700}
+.ccsum .k .l{font-size:11.5px;color:var(--mute)}
+/* 4x3 grid pages */
+nav.tabs button.sec{font-size:12.5px;font-weight:500;padding:7px 12px;color:#7c8496}
+nav.tabs button.sec[aria-selected=true]{color:var(--acc);font-weight:600}
+nav.tabs .sp{margin-left:auto}
+.gbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 3px;flex-wrap:wrap}
+.gbar .wk{font-size:15px;font-weight:700}
+.gbar .controls{gap:12px}
+.asum{margin:1px 0 6px}
+.asum .pg{display:inline-block;font-size:10.5px;font-weight:700;background:#eef3fb;color:var(--acc);border-radius:4px;padding:0 5px;margin-right:3px}
+.grid4{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:10px}
+.c4{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 16px 8px;min-width:0;display:flex;flex-direction:column}
+.c4.alert{border-color:#f0a39d;box-shadow:0 0 0 1px #f6c8c4 inset}
+.c4.spare{border-style:dashed;background:transparent;align-items:center;justify-content:center;color:#a3a9b6;font-size:13px;min-height:120px}
+.c4 .ch{margin-bottom:2px}
+.c4 .ch .p{font-size:21px;letter-spacing:.2px}
+.c4 .bdg{font-size:11.5px;line-height:19px;padding:0 7px}
+.c4 .cbody{flex:1}
+.cbody{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:stretch}
+.c4 table.days{font-size:17.5px}
+.c4 table.days td{padding:1px 0;line-height:23px}
+.c4 table.days td.d{font-size:13px;width:60px}
+.c4 table.days td.r{font-weight:650;padding-right:8px}
+.c4 table.days td.c{font-size:13px;width:72px}
+.side{display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.c4 .spark{height:76px;margin-top:2px}
+.c4 .sparklbl{display:flex;justify-content:space-between;font-size:11.5px;color:#8b92a2}
+.c4 .wm{border-top:0;margin-top:3px;padding-top:0;font-size:13px;flex-direction:row;gap:14px}
+.c4 .wm div{flex:1}
+.c4 .wm div{display:flex;justify-content:space-between}
+.c4 .wm b{font-size:14px}
+.c4 .rng{margin-top:5px}
+.c4 .rng .bar{height:10px;border-radius:5px}
+.c4 .rng .mk{top:-4px;width:4px;height:18px}
+.c4 .rng .lbl{font-size:12.5px;margin-top:2px}
+.c4 .rng .lbl .mid{color:#6b7385}
+.printhead{display:none}
+/* compact business strip */
+.biz.compact{position:static;padding:0 0 8px;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr))}
+.biz.compact .bcard{padding:5px 9px;display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center}
+.biz.compact .t{grid-column:1/3}
+.biz.compact .val{font-size:16px;margin:0}
+.biz.compact .chg{font-size:11.5px;margin-left:4px}
+.biz.compact .brow{margin:0;justify-content:flex-end;font-size:11px;white-space:nowrap}
+.biz.compact .bcard>div:nth-child(2){white-space:nowrap}
+.biz.compact .brow input{width:92px;padding:2px 5px;font-size:11.5px}
+.biz.compact .var{font-size:11px;grid-column:1/3;text-align:right;min-height:0}
+.biz.compact .var:empty{display:none}
+@media print{
+  @page{size:A4 landscape;margin:7mm}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  header.top,nav.tabs,.gbar,.asum,.glegend,#page-cross,#page-monthly{display:none!important}
+  #gridpages{display:block!important}
+  .gpage,.gpage[hidden]{display:block!important;width:1420px;zoom:.745;break-after:page;page-break-after:always;break-inside:avoid}
+  .gpage:last-child{break-after:auto;page-break-after:auto}
+  .printhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding:0 2px 5px;margin-bottom:10px;font-size:13px;color:var(--mute)}
+  .printhead b{color:var(--ink);font-size:17px}
+  .c4,.bcard{box-shadow:none!important}
+  .grid4{grid-auto-rows:272px!important}
+  #page-p2 .grid4{grid-auto-rows:298px!important}
+  .c4 .spark{height:120px}
+  .c4 table.days{font-size:19px}
+  .c4 table.days td{padding:4px 0}
+  .biz.compact input{border-color:#eee}
+}
+footer{margin-top:14px;font-size:11.5px;color:var(--mute);border-top:1px solid var(--line);padding-top:8px}
+footer li{margin:2px 0}
+
+/* ===== Senior-friendly large layout (screen only, both themes) ===== */
+@media screen{
+  body{font-size:16px;line-height:1.4}
+  .wrap{padding:14px 20px 32px}
+  h1{font-size:26px}
+  h1 .proto{font-size:14px;padding:2px 10px}
+  .srcline{font-size:15px;white-space:normal;max-width:1100px}
+  button,select,input[type=text],input[type=number]{min-height:44px;font-size:16px;border-width:2px;border-radius:8px}
+  button{padding:6px 16px;font-weight:600}
+  input.thr{width:72px}
+  *:focus-visible{outline:3px solid #ffb300;outline-offset:2px}
+  .controls{gap:10px}
+  .controls label{font-size:16px;gap:6px}
+  nav.tabs{margin-top:10px;border-bottom-width:3px}
+  nav.tabs button{font-size:18px;padding:10px 24px;min-height:50px;margin-bottom:-3px;font-weight:700}
+  nav.tabs button.sec{font-size:16px;padding:8px 16px;min-height:46px}
+  nav.tabs .k{font-size:14px}
+  .gbar{margin:12px 0 6px;row-gap:8px}
+  .gbar .wk{font-size:20px;margin-right:6px}
+  .weeknav{gap:8px}
+  .weeknav select{min-width:300px}
+  .asum{font-size:15px;margin:4px 0 10px}
+  .asum .pg{font-size:14px;padding:1px 7px}
+  .biz.compact{gap:10px;padding-bottom:12px}
+  .biz.compact .bcard{padding:8px 12px;border-left-width:5px;row-gap:4px}
+  .biz.compact .pair,.bcard .pair{font-size:18px}
+  .bcard .ent{font-size:14px}
+  .biz.compact .val{font-size:24px}
+  .biz.compact .chg{font-size:15px;margin-left:6px}
+  .biz.compact .brow input{width:100%;min-height:44px;font-size:16px;padding:4px 8px}
+  .biz.compact .brow{grid-column:1/3;justify-content:stretch}
+  .biz.compact .var{font-size:14px}
+  .grid4{gap:14px}
+  .c4{padding:12px 18px 12px;border-width:2px;border-radius:12px}
+  .c4 .ch{margin-bottom:6px}
+  .c4 .ch .p{font-size:28px;font-weight:800}
+  .c4 .bdg{font-size:14px;line-height:24px;padding:0 9px;border-radius:6px}
+  .cbody{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px}
+  .c4 table.days{font-size:22px}
+  .c4 table.days td{line-height:34px;padding:0}
+  .c4 table.days td.d{font-size:16px;width:72px}
+  .c4 table.days td.d .zh{margin-left:3px}
+  .c4 table.days td.r{font-weight:800;padding-right:10px}
+  .c4 table.days td.c{font-size:18px;width:34px;text-align:center}
+  .c4 table.days td.c .pc{display:none}
+  .c4 .sparklbl{font-size:14px}
+  .c4 .spark{height:84px;margin-top:4px}
+  .spark .sl{stroke-width:2.8}
+  .c4 .wm{font-size:16px;gap:2px;margin-top:6px;flex-direction:column}
+  .c4 .wm div{display:flex;justify-content:space-between;white-space:nowrap}
+  .c4 .wm b{font-size:17px}
+  .c4 .rng{margin-top:10px}
+  .c4 .rng .bar{height:14px;border-radius:7px}
+  .c4 .rng .mk{top:-6px;width:7px;height:26px;border-radius:3px}
+  .c4 .rng .lbl{font-size:15px;margin-top:5px}
+  .legend{font-size:15px;margin-top:10px}
+  .sechead h2{font-size:20px}
+  .sechead .sub{font-size:15px}
+  .lbl2{font-size:16px}
+  .intro{font-size:16px}
+  .panel{padding:12px 16px;border-width:2px}
+  table.t{font-size:16px}
+  table.t th{font-size:14px;padding:8px 8px}
+  table.t td{padding:6px 8px}
+  table.ccv{font-size:18px}
+  table.ccv td,table.ccv th{padding:9px 12px}
+  table.ccv th{font-size:15px}
+  table.ccv td.legs{font-size:16px}
+  .pill{font-size:15px;padding:3px 12px}
+  .ccsum .k{padding:10px 18px;min-width:200px;border-width:2px}
+  .ccsum .k .v{font-size:30px}
+  .ccsum .k .l{font-size:15px}
+  .devbar{width:200px;height:14px;border-radius:7px}
+  .devbar .f{height:12px;top:1px}
+  .devbar .lim{height:14px}
+  .devbar .z{height:20px;top:-3px;width:2px}
+  table.m{font-size:16px}
+  table.m td .e{font-size:14px}
+  footer{font-size:15px}
+  footer li{margin:5px 0}
+}
+/* ===== Dark theme (screen only) ===== */
+@media screen{
+  html[data-theme=dark]{--bg:#0b0b0b;--card:#161616;--ink:#f2f2f2;--mute:#c8c8c8;--line:#3a3a3a;--up:#4ade80;--dn:#ff6b6b;--acc:#8ab8ff;--alert:#ff8a8a;--alertbg:#3b1616;--today:#ffd54a;color-scheme:dark}
+  html[data-theme=dark] body{background:var(--bg);color:var(--ink)}
+  html[data-theme=dark] h1 .proto{background:#3a2a00;color:#ffd54a;border-color:#8a6a00}
+  html[data-theme=dark] .srcline{color:var(--mute)}
+  html[data-theme=dark] .srcline .tg,html[data-theme=dark] .ptag{color:#ffd54a}
+  html[data-theme=dark] button,html[data-theme=dark] select,html[data-theme=dark] input[type=text],html[data-theme=dark] input[type=number]{background:#1e1e1e;color:var(--ink);border-color:#5c5c5c}
+  html[data-theme=dark] input::placeholder{color:#b8b8b8;opacity:1}
+  html[data-theme=dark] button:hover{border-color:var(--acc);color:#fff;background:#232a36}
+  html[data-theme=dark] button.primary{background:#8ab8ff;color:#000;border-color:#8ab8ff}
+  html[data-theme=dark] button.primary:hover{background:#b3d0ff;color:#000}
+  html[data-theme=dark] nav.tabs{border-bottom-color:var(--line)}
+  html[data-theme=dark] nav.tabs button{background:transparent;color:var(--mute);border-color:transparent}
+  html[data-theme=dark] nav.tabs button:hover{background:#1c2230;color:#fff}
+  html[data-theme=dark] nav.tabs button[aria-selected=true]{background:var(--card);color:#fff;border-color:var(--line);border-bottom-color:var(--card);box-shadow:inset 0 4px 0 #8ab8ff}
+  html[data-theme=dark] nav.tabs button.sec{color:var(--mute)}
+  html[data-theme=dark] nav.tabs button.sec[aria-selected=true]{color:#fff}
+  html[data-theme=dark] nav.tabs .k{color:var(--mute)}
+  html[data-theme=dark] .bcard,html[data-theme=dark] .c4,html[data-theme=dark] .panel,html[data-theme=dark] .ccsum .k{background:var(--card);border-color:var(--line)}
+  html[data-theme=dark] .bcard{border-left-color:#8ab8ff}
+  html[data-theme=dark] .bcard .ent{color:var(--mute)}
+  html[data-theme=dark] .c4.alert{border-color:#ff6b6b;box-shadow:none}
+  html[data-theme=dark] table.days td.d,html[data-theme=dark] table.days td.d .zh{color:var(--mute)}
+  html[data-theme=dark] table.days tr.nodata td.r,html[data-theme=dark] table.days tr.nodata td.c{color:#c8c8c8}
+  html[data-theme=dark] .fl{color:var(--mute)}
+  html[data-theme=dark] .bdg.mv{background:#ff6b6b;color:#000}
+  html[data-theme=dark] .bdg.hi{background:transparent;color:#4ade80;box-shadow:inset 0 0 0 2px #4ade80}
+  html[data-theme=dark] .bdg.lo{background:transparent;color:#ff8a8a;box-shadow:inset 0 0 0 2px #ff6b6b}
+  html[data-theme=dark] .bdg.dv{background:#2a2a2a;color:#f2f2f2}
+  html[data-theme=dark] .spark .sf{opacity:.13}
+  html[data-theme=dark] .c4 .sparklbl,html[data-theme=dark] .c4 .wm{color:var(--mute)}
+  html[data-theme=dark] .rng .bar{background:linear-gradient(90deg,#6b2626,#3a3a3a 30%,#3a3a3a 70%,#1f5a35)}
+  html[data-theme=dark] .rng .mk{background:#fff;box-shadow:0 0 0 2px #000}
+  html[data-theme=dark] .rng .lbl,html[data-theme=dark] .rng .lbl .mid{color:var(--mute)}
+  html[data-theme=dark] .legend,html[data-theme=dark] .asum,html[data-theme=dark] .sechead .sub,html[data-theme=dark] .lbl2,html[data-theme=dark] .intro,html[data-theme=dark] .controls label{color:var(--mute)}
+  html[data-theme=dark] .asum b{color:var(--ink)}
+  html[data-theme=dark] .asum .pg{background:#1f2c44;color:#b3d0ff}
+  html[data-theme=dark] table.t th{color:var(--mute);border-bottom-color:var(--line)}
+  html[data-theme=dark] table.t td{border-bottom-color:#2a2a2a}
+  html[data-theme=dark] table.t tr.flag td,html[data-theme=dark] table.cc td.flag{background:var(--alertbg)}
+  html[data-theme=dark] table.t td.ok{color:var(--up)}
+  html[data-theme=dark] table.t td.bad{color:var(--alert)}
+  html[data-theme=dark] table.ccv td.legs{color:var(--mute)}
+  html[data-theme=dark] table.m td .e{color:var(--mute)}
+  html[data-theme=dark] table.m th.cur,html[data-theme=dark] table.m td.cur{background:#1a2333}
+  html[data-theme=dark] .pill.ok{background:#12351f;color:#4ade80}
+  html[data-theme=dark] .pill.bad{background:#3b1616;color:#ff8a8a}
+  html[data-theme=dark] .pill.calc{background:#2a2a2a;color:#f2f2f2}
+  html[data-theme=dark] .devbar{background:#2a2a2a}
+  html[data-theme=dark] .devbar .z{background:#c8c8c8}
+  html[data-theme=dark] .devbar .lim{border-left-color:#ff6b6b}
+  html[data-theme=dark] footer{color:var(--mute);border-top-color:var(--line)}
+  html[data-theme=dark] footer b{color:var(--ink)}
+}
+
+.upd{display:inline-block;margin:4px 0 2px;padding:4px 12px;border-radius:999px;background:#eef3fb;color:var(--ink);font-size:13px}
+.upd b{font-variant-numeric:tabular-nums}
+.upd .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--up);margin-right:8px;vertical-align:1px}
+.upd.stale .dot{background:#e0a000}
+.upd.stale{background:#fff4e0}
+@media screen{
+  .upd{font-size:16px;padding:6px 14px}
+  .upd b{font-size:17px}
+  html[data-theme=dark] .upd{background:#1c1c1c;box-shadow:inset 0 0 0 2px #3a3a3a;color:var(--ink)}
+  html[data-theme=dark] .upd.stale{box-shadow:inset 0 0 0 2px #ffb300}
+  html[data-theme=dark] .upd.stale .dot{background:#ffb300}
+}
+/* ===== Responsive (screen only, so print layout is unaffected) ===== */
+@media screen and (max-width:1100px){
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .biz.compact{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .srcline{max-width:none}
+  header.top{flex-direction:column;align-items:stretch;gap:8px}
+  header.top .controls{justify-content:flex-start}
+  .weeknav{flex-wrap:wrap}
+  .weeknav button{white-space:nowrap}
+  .gbar .wk{white-space:nowrap}
+}
+@media screen and (max-width:700px){
+  .wrap{padding:10px 10px 28px}
+  header.top{flex-direction:column;align-items:stretch;gap:8px}
+  header.top .controls{justify-content:flex-start}
+  h1{font-size:23px}
+  .upd{font-size:15px;border-radius:12px}
+  nav.tabs{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap}
+  nav.tabs::-webkit-scrollbar{display:none}
+  nav.tabs button,nav.tabs button.sec{flex:none;white-space:nowrap;font-size:17px;padding:10px 16px}
+  nav.tabs .sp{margin-left:0}
+  .gbar{flex-direction:column;align-items:stretch}
+  .weeknav{flex-wrap:wrap}
+  .gbar .wk{width:100%}
+  .weeknav select{min-width:0;flex:1 1 100%;order:3}
+  .gbar .controls{justify-content:flex-start}
+  .biz.compact{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid4{grid-template-columns:1fr;grid-auto-rows:auto}
+  .cbody{grid-template-columns:1fr;gap:6px}
+  .c4 table.days td.d{width:90px}
+  .c4 table.days td.r{text-align:left;padding-left:8px}
+  .c4 .spark{height:80px}
+  .sechead{flex-direction:column;align-items:flex-start;gap:6px}
+  .sechead .weeknav,.sechead .weeknav label{width:100%}
+  #ccSel{width:100%;margin-top:4px}
+  .ccsum{flex-wrap:wrap}
+  .ccsum .k{min-width:0;flex:1 1 40%}
+  .panel{overflow-x:auto}
+  table.ccv td.legs,table.ccv th.legs{display:none}
+  .devbar{width:110px}
+  .biz.compact .t{flex-direction:column;align-items:flex-start;gap:0}
+  .biz.compact .bcard{padding:8px 10px}
+  .c4 .rng .lbl .mid{display:none}
+  .c4 .ch .p{font-size:27px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div>
+    <h1>FX Monitor 汇率监测 <span class="proto">PROTOTYPE 样板</span></h1>
+    <div class="upd" id="upd" role="status" aria-live="polite"></div>
+    <div class="srcline" id="srcline"></div>
+  </div>
+  <div class="controls">
+    <button id="themeBtn" class="themebtn" aria-pressed="true" title="Switch dark / light theme 切换深色/浅色"></button>
+    <button class="primary" id="dlcsv">⬇ Download CSV 下载</button>
+  </div>
+</header>
+<nav class="tabs" role="tablist" aria-label="Pages">
+  <button role="tab" id="tab-p1" aria-controls="page-p1" data-page="p1">第1页 Page 1<span class="k">1</span></button>
+  <button role="tab" id="tab-p2" aria-controls="page-p2" data-page="p2">第2页 Page 2<span class="k">2</span></button>
+  <button role="tab" class="sec sp" id="tab-cross" aria-controls="page-cross" data-page="cross">交叉核对 Cross check<span class="k">3</span></button>
+  <button role="tab" class="sec" id="tab-monthly" aria-controls="page-monthly" data-page="monthly">月度 Monthly<span class="k">4</span></button>
+</nav>
+<div id="gridpages">
+  <div class="gbar">
+    <div class="weeknav"><span class="wk">Week 周 <span id="weekttl"></span></span>
+      <button id="prevW">◀ Prev 上周</button><select id="weekSel"></select><button id="nextW">Next 下周 ▶</button><button id="thisW">This week 本周</button></div>
+    <div class="controls"><label title="Flag a pair when its daily move exceeds this %">Move alert 单日波动 &gt; <input class="thr num" id="thrMove" type="number" step="0.1" min="0"> %</label>
+    <label title="Flag a pair when the latest rate is within this % of its 52-week high or low">Near 52w 接近高/低 ≤ <input class="thr num" id="thrNear" type="number" step="0.1" min="0"> %</label></div>
+  </div>
+  <div class="asum" id="asum"></div>
+  <div class="page gpage" id="page-p1" role="tabpanel" aria-labelledby="tab-p1">
+    <div class="printhead" data-n="1"></div>
+    <div class="biz compact" id="biz" aria-label="Business pairs 业务相关货币"></div>
+    <div class="grid4" id="grid1"></div>
+  </div>
+  <div class="page gpage" id="page-p2" role="tabpanel" aria-labelledby="tab-p2" hidden>
+    <div class="printhead" data-n="2"></div>
+    <div class="grid4" id="grid2"></div>
+  </div>
+  <div class="legend glegend">Each cell: Mon–Fri rates with <span class="up">▲ up</span> / <span class="dn">▼ down</span> vs previous trading day · WTD = vs last Friday · MTD = vs previous month-end · line = last 30 trading days · bar = where the rate sits in its 52-week low–high · <b class="tdy">yellow*</b> = today, intraday (not final).</div>
+</div>
+<div class="page" id="page-cross" role="tabpanel" aria-labelledby="tab-cross" hidden>
+  <section>
+    <div class="sechead">
+      <h2>Consistency check 交叉核对 <span class="weekttl" id="ccdate"></span></h2>
+      <div class="weeknav"><label class="lbl2">Date 日期 <select id="ccSel"></select></label></div>
+    </div>
+    <div class="intro">Each cross rate is compared with the rate implied by its two USD legs (e.g. EUR/JPY vs EUR/USD × USD/JPY). A deviation above <b>0.3%</b> usually means a typo, a stale quote or a timing mismatch between sources.</div>
+    <div class="ccsum" id="ccsum"></div>
+    <div class="panel"><table class="t ccv" id="cc"></table></div>
+  </section>
+</div>
+<div class="page" id="page-monthly" role="tabpanel" aria-labelledby="tab-monthly" hidden>
+  <section>
+    <div class="sechead"><h2>Monthly average &amp; month-end 月均价与月末价</h2><span class="sub">Last 12 months + current month to date · 18 pairs</span></div>
+    <div class="panel"><div class="mt" style="margin-top:0"><table class="t m" id="mtab"></table></div>
+    <div class="legend">Top = monthly average of daily closes · grey = month-end (last trading day) close. Current month = month to date (includes today's intraday value).</div></div>
+  </section>
+  <footer id="foot"></footer>
+</div>
+</div>
+
+<script id="fxdata" type="application/json">/*DATA*/</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('fxdata').textContent);
+const cols=D.cols, rows=D.rows, dates=rows.map(r=>r[0]);
+const idx={}; cols.forEach((c,i)=>idx[c]=i+1);
+const LS='fxmon.v1.';
+const lsGet=(k,d)=>{try{const v=localStorage.getItem(LS+k);return v===null?d:v}catch(e){return d}};
+const lsSet=(k,v)=>{try{localStorage.setItem(LS+k,v)}catch(e){}};
+const label=p=>p.slice(0,3)+'/'+p.slice(3);
+const dp=p=>p.endsWith('IDR')?0:(p.endsWith('JPY')||p.endsWith('TWD'))?3:4;
+const fmt=(p,v)=>v==null||isNaN(v)?'—':v.toLocaleString('en-US',{minimumFractionDigits:dp(p),maximumFractionDigits:dp(p)});
+const pct=(v,d=2)=>v==null||isNaN(v)?'—':(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(d)+'%';
+const cls=v=>v==null||isNaN(v)||Math.abs(v)<1e-9?'fl':v>0?'up':'dn';
+const arrow=v=>v==null||isNaN(v)||Math.abs(v)<1e-9?'■':v>0?'▲':'▼';
+const val=(p,i)=>{const r=rows[i];return r?r[idx[p]]:null};
+// Shanghai "today"
+const shToday=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const lastDate=dates[dates.length-1];
+const liveDate=lastDate; // last row is intraday when it equals generation date
+const isLive=d=>!!D.live && d===D.live;
+const pd=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d))};
+const ds=dt=>dt.toISOString().slice(0,10);
+const addDays=(s,n)=>{const t=pd(s);t.setUTCDate(t.getUTCDate()+n);return ds(t)};
+const monday=s=>{const t=pd(s);const w=(t.getUTCDay()+6)%7;return addDays(s,-w)};
+const md=s=>s.slice(5).replace('-','/');
+// helpers on series
+function prevIdx(p,i){for(let j=i-1;j>=0;j--){if(val(p,j)!=null)return j}return -1}
+function lastIdxOnOrBefore(p,dstr){let lo=-1;for(let j=0;j<dates.length&&dates[j]<=dstr;j++){if(val(p,j)!=null)lo=j}return lo}
+function dayChg(p,i){const v=val(p,i);const j=prevIdx(p,i);if(v==null||j<0)return null;return (v/val(p,j)-1)*100}
+function stats(p,i){ // i: index of latest point
+  const v=val(p,i); if(v==null) return null;
+  const from=addDays(dates[i],-364);
+  let hi=-Infinity,lo=Infinity,n=0,first=null;
+  for(let j=i;j>=0&&dates[j]>=from;j--){const x=val(p,j);if(x==null)continue;n++;first=dates[j];if(x>hi)hi=x;if(x<lo)lo=x}
+  const pm=lastIdxOnOrBefore(p,addDays(dates[i].slice(0,8)+'01',-1));
+  const pw=lastIdxOnOrBefore(p,addDays(monday(dates[i]),-1));
+  const spark=[];for(let j=i;j>=0&&spark.length<30;j--){const x=val(p,j);if(x!=null)spark.unshift(x)}
+  return {v,hi,lo,n,first,mtd:pm>=0?(v/val(p,pm)-1)*100:null,wtd:pw>=0?(v/val(p,pw)-1)*100:null,dchg:dayChg(p,i),spark,partial:first>addDays(dates[i],-350)};
+}
+function sparkSVG(a,col){
+  if(a.length<2)return '';
+  const W=150,H=(arguments[2]||28),mn=Math.min(...a),mx=Math.max(...a),r=(mx-mn)||1;
+  const pts=a.map((x,k)=>[(k/(a.length-1))*W,H-2-((x-mn)/r)*(H-4)]);
+  const d=pts.map((q,k)=>(k?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join('');
+  const last=pts[pts.length-1];
+  return `<svg class="spark ${col}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><path class="sf" d="${d} L${W} ${H} L0 ${H}Z"/><path class="sl" d="${d}" vector-effect="non-scaling-stroke"/></svg>`;
+}
+// thresholds
+const thrMove=document.getElementById('thrMove'), thrNear=document.getElementById('thrNear');
+thrMove.value=lsGet('thrMove','1'); thrNear.value=lsGet('thrNear','2');
+[thrMove,thrNear].forEach(el=>el.addEventListener('input',()=>{lsSet(el.id,el.value);renderGrid()}));
+// header source line
+const yahooPairs=cols.filter(c=>D.src[c]==='Yahoo Finance');
+document.getElementById('srcline').innerHTML=
+ `Sample data 样板数据: <b>Yahoo Finance</b> daily close · ${dates[0]} → ${lastDate}`+` &nbsp;|&nbsp; <span class="tg">Official 正式取值: <b>香港汇通财经 FX678</b>, fixed daily time <b>TBD 待定</b></span> · details → 月度 Monthly`;
+// ---- business strip
+const ENT={USDCAD:'CF · Canada',USDCNY:'JL / LR · China',USDMYR:'MF · Malaysia',USDIDR:'IF · Indonesia',USDSGD:'ST · Singapore',USDTWD:'BW · Taiwan'};
+function renderBiz(){
+  const el=document.getElementById('biz');
+  el.innerHTML=D.biz.map(p=>{
+    const i=lastIdxOnOrBefore(p,lastDate), s=stats(p,i);
+    return `<div class="bcard"><div class="t"><span class="pair">${label(p)}</span><span class="ent">${ENT[p]||''}</span></div>
+    <div><span class="val num">${fmt(p,s.v)}</span><span class="chg num ${cls(s.dchg)}">${arrow(s.dchg)} ${pct(s.dchg)}</span></div>
+    <div class="brow" title="Budget rate 预算汇率"><input type="text" inputmode="decimal" class="num" data-p="${p}" placeholder="set budget 预算" aria-label="Budget rate ${label(p)}" value="${lsGet('bud.'+p,'')}"></div>
+    <div class="var num" id="var_${p}"></div></div>`}).join('');
+  el.querySelectorAll('input').forEach(inp=>{inp.addEventListener('input',()=>{lsSet('bud.'+inp.dataset.p,inp.value.trim());upd(inp.dataset.p)});upd(inp.dataset.p)});
+  function upd(p){
+    const b=parseFloat((lsGet('bud.'+p,'')||'').replace(/,/g,''));
+    const s=stats(p,lastIdxOnOrBefore(p,lastDate));
+    const v=document.getElementById('var_'+p);
+    if(!b||isNaN(b)){v.textContent='';v.title='';return}
+    const x=(s.v/b-1)*100; const ccy=p.slice(3);
+    v.className='var num '+(Math.abs(x)<0.05?'fl':x>0?'up':'dn'); v.textContent=pct(x)+' vs budget';
+    v.textContent+=Math.abs(x)<0.05?' · on budget':(x>0?` · ${ccy} weaker`:` · ${ccy} stronger`);
+    v.title=Math.abs(x)<0.05?'on budget':(x>0?`USD stronger · ${ccy} weaker than budget`:`USD weaker · ${ccy} stronger than budget`);
+  }
+}
+// ---- weeks
+const firstWeek=monday(addDays(lastDate,-364));
+const weeks=[];for(let w=firstWeek;w<=monday(shToday>lastDate?shToday:lastDate);w=addDays(w,7))weeks.push(w);
+const wsel=document.getElementById('weekSel');
+const isoWeek=s=>{const t=pd(s);const th=new Date(t);th.setUTCDate(t.getUTCDate()+3-((t.getUTCDay()+6)%7));const y=th.getUTCFullYear();const j1=new Date(Date.UTC(y,0,4));return y+'-W'+String(1+Math.round(((th-j1)/864e5-3+((j1.getUTCDay()+6)%7))/7)).padStart(2,'0')};
+wsel.innerHTML=weeks.slice().reverse().map(w=>`<option value="${w}">${isoWeek(w)} · ${w.slice(0,4)} ${md(w)} – ${md(addDays(w,4))}</option>`).join('');
+let curW=monday(shToday); if(!weeks.includes(curW)) curW=weeks[weeks.length-1];
+wsel.value=curW;
+wsel.addEventListener('change',()=>{curW=wsel.value;renderGrid()});
+document.getElementById('prevW').onclick=()=>{const k=weeks.indexOf(curW);if(k>0){curW=weeks[k-1];wsel.value=curW;renderGrid()}};
+document.getElementById('nextW').onclick=()=>{const k=weeks.indexOf(curW);if(k<weeks.length-1){curW=weeks[k+1];wsel.value=curW;renderGrid()}};
+document.getElementById('thisW').onclick=()=>{curW=weeks.includes(monday(shToday))?monday(shToday):weeks[weeks.length-1];wsel.value=curW;renderGrid()};
+const DAYS=[['Mon','一'],['Tue','二'],['Wed','三'],['Thu','四'],['Fri','五']];
+const PAGESETS=[D.pairs.slice(0,9),D.pairs.slice(9,18)];
+function cellHTML(p,wd,tm,tn,pg,moveN,nearN){
+  if(!p)return '<div class="c4 spare">spare 备用</div>';
+  let trs='';
+  wd.forEach((d,k)=>{
+    const i=dates.indexOf(d); const v=i>=0?val(p,i):null; const c=v!=null?dayChg(p,i):null;
+    const live=v!=null&&isLive(d);
+    trs+=`<tr class="${v==null?'nodata':''} ${live?'today':''}" title="${d}${live?' · intraday':''}"><td class="d">${DAYS[k][0]}<span class="zh">${DAYS[k][1]}</span></td><td class="r rate">${fmt(p,v)}${live?'*':''}</td><td class="c num ${cls(c)}" title="${v==null?'':pct(c)+' vs previous trading day'}">${v==null?'':'<span class="ar">'+arrow(c)+'</span><span class="pc"> '+pct(c)+'</span>'}</td></tr>`;
+  });
+  const li=lastIdxOnOrBefore(p,wd[4]); const s=li>=0?stats(p,li):null;
+  let badges='',alert=false,side='',rng='';
+  if(s){
+    if(s.dchg!=null&&Math.abs(s.dchg)>tm){badges+=`<span class="bdg mv" title="Daily move ${pct(s.dchg)} on ${dates[li]}">${s.dchg>0?'▲':'▼'}${Math.abs(s.dchg).toFixed(1)}%</span>`;alert=true;moveN.push([pg,label(p)+' '+pct(s.dchg,1)])}
+    const nh=(s.hi/s.v-1)*100, nl=(s.v/s.lo-1)*100;
+    if(nh<=tn&&nh<=nl){badges+=`<span class="bdg hi" title="${nh.toFixed(2)}% below 52w high ${fmt(p,s.hi)}">52w HI</span>`;nearN.push([pg,label(p)+' HI'])}
+    else if(nl<=tn){badges+=`<span class="bdg lo" title="${nl.toFixed(2)}% above 52w low ${fmt(p,s.lo)}">52w LO</span>`;nearN.push([pg,label(p)+' LO'])}
+    if(D.src[p]!=='Yahoo Finance')badges+=`<span class="bdg dv" title="${D.src[p]}">${D.src[p].startsWith('derived')?'calc':'alt src'}</span>`;
+    const pos=s.hi>s.lo?(s.v-s.lo)/(s.hi-s.lo)*100:50;
+    rng=`<div class="rng" title="52-week range${s.partial?' (partial window from '+s.first+')':''}: ${fmt(p,s.lo)} – ${fmt(p,s.hi)}; latest ${fmt(p,s.v)} on ${dates[li]}"><div class="bar"><div class="mk" style="left:${Math.max(1.5,Math.min(98.5,pos)).toFixed(1)}%"></div></div><div class="lbl num"><span>L ${fmt(p,s.lo)}</span><span class="mid">52-week range 52周区间 · ${pos.toFixed(0)}%</span><span>H ${fmt(p,s.hi)}</span></div></div>`;
+    const col=s.v>=s.spark[0]?'up':'dn';
+    side=`<div class="side"><div><div class="sparklbl"><span>30 trading days 30日</span><span class="num">${pct((s.v/s.spark[0]-1)*100,1)}</span></div>${sparkSVG(s.spark,col,72)}</div>
+      <div class="wm"><div><span>WTD 周</span><b class="num ${cls(s.wtd)}">${pct(s.wtd)}</b></div><div><span>MTD 月</span><b class="num ${cls(s.mtd)}">${pct(s.mtd)}</b></div></div></div>`;
+  }
+  return `<div class="c4 ${alert?'alert':''}"><div class="ch"><span class="p">${label(p)}</span><span class="badges">${badges}</span></div><div class="cbody"><table class="days">${trs}</table>${side}</div>${rng}</div>`;
+}
+function renderGrid(){
+  const tm=parseFloat(thrMove.value)||0, tn=parseFloat(thrNear.value)||0;
+  const wd=DAYS.map((_,k)=>addDays(curW,k));
+  const wtxt=`${md(wd[0])} – ${md(wd[4])} ${wd[0].slice(0,4)}`;
+  document.getElementById('weekttl').textContent=wtxt;
+  const moveN=[],nearN=[];
+  PAGESETS.forEach((set,k)=>{
+    const slots=set.concat(Array(Math.max(0,9-set.length)).fill(null));
+    document.getElementById('grid'+(k+1)).innerHTML=slots.map(p=>cellHTML(p,wd,tm,tn,k+1,moveN,nearN)).join('');
+  });
+  document.querySelectorAll('.printhead').forEach(el=>{el.innerHTML=`<span><b>FX Monitor 汇率监测</b> &nbsp;Week 周 ${isoWeek(curW)} · ${wtxt} &nbsp;<span class="ptag">PROTOTYPE · sample data Yahoo Finance; official source FX678 (time TBD)</span></span><span><b>Page ${el.dataset.n}/2</b> &nbsp;printed ${shToday}</span>`});
+  const grp=list=>{const g={};list.forEach(([pg,s])=>{(g[pg]=g[pg]||[]).push(s)});return Object.keys(g).sort().map(pg=>`<span class="pg">P${pg}</span>${g[pg].join(', ')}`).join(' &nbsp; ')};
+  document.getElementById('asum').innerHTML=`Alerts 提示 (latest day of week): <b class="${moveN.length?'dn':''}">${moveN.length}</b> daily move &gt; ${tm}%${moveN.length?' — '+grp(moveN):''} &nbsp;·&nbsp; <b>${nearN.length}</b> within ${tn}% of 52-week high/low${nearN.length?' — '+grp(nearN):''}`;
+  renderCC();
+}
+// ---- consistency check
+function usdPer(ccy,i){ // USD value of 1 unit of ccy on row i
+  if(ccy==='USD')return 1;
+  const direct=val(ccy+'USD',i); if(direct!=null)return direct;
+  const inv=idx['USD'+ccy]?val('USD'+ccy,i):null; return inv!=null?1/inv:null;
+}
+const ccSel=document.getElementById('ccSel');
+ccSel.innerHTML='<option value="follow">Follow grid pages (latest day of selected week)</option>'+dates.slice(-260).reverse().map(d=>`<option value="${d}">${d} ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][pd(d).getUTCDay()]}${isLive(d)?' (intraday)':''}</option>`).join('');
+ccSel.value=lsGet('ccSel','follow'); if(!ccSel.value) ccSel.value='follow';
+ccSel.addEventListener('change',()=>{lsSet('ccSel',ccSel.value);renderCC()});
+function renderCC(){
+  const endDate=ccSel.value==='follow'?addDays(curW,4):ccSel.value;
+  let i=-1;for(let j=0;j<dates.length&&dates[j]<=endDate;j++){if(val('EURUSD',j)!=null)i=j}
+  const t=document.getElementById('cc');
+  if(i<0){t.innerHTML='<tr><td>No data</td></tr>';return}
+  document.getElementById('ccdate').textContent='· as of '+dates[i]+(isLive(dates[i])?' (intraday)':'')+(ccSel.value==='follow'?' — following week '+md(curW)+'–'+md(addDays(curW,4)):'');
+  const legStr=(c,i)=>{if(c==='USD')return '';if(idx[c+'USD'])return `${c}/USD ${fmt(c+'USD',val(c+'USD',i))}`;if(idx['USD'+c])return `USD/${c} ${fmt('USD'+c,val('USD'+c,i))}`;return c+' n/a'};
+  const ps=D.pairs.filter(p=>!p.includes('USD'));
+  const R=ps.map(p=>{const q=val(p,i),a=usdPer(p.slice(0,3),i),b=usdPer(p.slice(3),i);const imp=(a!=null&&b!=null)?a/b:null;const dev=(q!=null&&imp!=null)?(q/imp-1)*100:null;return {p,q,imp,dev,bad:dev!=null&&Math.abs(dev)>0.3,der:D.src[p].startsWith('derived: Yahoo'),alt:D.src[p]!=='Yahoo Finance'&&!D.src[p].startsWith('derived: Yahoo')}});
+  const SC=0.6; // bar scale ±0.6%
+  const bar=d=>{if(d==null)return '';const w=Math.min(Math.abs(d),SC)/SC*50;const l=d>=0?50:50-w;const col=Math.abs(d)>0.3?'var(--dn)':'var(--up)';return `<span class="devbar"><span class="lim" style="left:${50-0.3/SC*50}%"></span><span class="lim" style="left:${50+0.3/SC*50}%"></span><span class="f" style="left:${l}%;width:${Math.max(w,0.8)}%;background:${col}"></span><span class="z"></span></span>`};
+  let h='<tr><th>Pair 货币对</th><th>Quoted 报价</th><th class="legs">USD legs 美元腿</th><th>Implied 推算</th><th>Deviation 偏差</th><th style="text-align:center">±0.6% scale (dashed = ±0.3%)</th><th class="st">Status 状态</th></tr>';
+  R.forEach(r=>{h+=`<tr class="${r.bad?'flag':''}"><td><b>${label(r.p)}</b>${r.alt?' <span class="bdg dv">alt src</span>':''}</td><td class="num">${fmt(r.p,r.q)}</td><td class="legs num">${legStr(r.p.slice(0,3),i)}${legStr(r.p.slice(0,3),i)&&legStr(r.p.slice(3),i)?' · ':''}${legStr(r.p.slice(3),i)}</td><td class="num">${fmt(r.p,r.imp)}</td><td class="num ${r.bad?'bad':'ok'}">${r.dev==null?'—':(r.dev>=0?'+':'−')+Math.abs(r.dev).toFixed(3)+'%'}</td><td style="text-align:center">${bar(r.dev)}</td><td class="st">${r.dev==null?'<span class="pill calc">no data</span>':r.der?'<span class="pill calc" title="Calculated from USD/TWD ÷ USD/CNY in this sample, so it matches by construction">calc</span>':r.bad?'<span class="pill bad">⚠ check</span>':'<span class="pill ok">✓ OK</span>'}</td></tr>`});
+  t.innerHTML=h;
+  const nb=R.filter(r=>r.bad).length, valid=R.filter(r=>r.dev!=null&&!r.der), mx=valid.reduce((m,r)=>Math.abs(r.dev)>Math.abs(m.dev)?r:m,valid[0]||{dev:0,p:'—'});
+  document.getElementById('ccsum').innerHTML=`<div class="k"><div class="v">${R.length}</div><div class="l">cross pairs checked 已核对</div></div><div class="k"><div class="v ${nb?'dn':'up'}">${nb}</div><div class="l">flagged &gt; 0.3% 超限</div></div><div class="k"><div class="v num">${mx.dev==null?'—':(mx.dev>=0?'+':'−')+Math.abs(mx.dev).toFixed(3)+'%'}</div><div class="l">largest deviation 最大偏差 · ${mx.p==='—'?'—':label(mx.p)}</div></div>`;
+}
+// ---- monthly table
+function renderMonthly(){
+  const months=[];const lm=lastDate.slice(0,7);
+  let [y,m]=lm.split('-').map(Number);
+  for(let k=0;k<13;k++){months.unshift(y+'-'+String(m).padStart(2,'0'));m--;if(!m){m=12;y--}}
+  let h='<tr><th>Pair</th>'+months.map(mo=>`<th class="${mo===lm?'cur':''}">${mo}${mo===lm?' MTD':''}</th>`).join('')+'</tr>';
+  D.pairs.forEach(p=>{
+    h+=`<tr><td><b>${label(p)}</b></td>`+months.map(mo=>{
+      let s=0,n=0,end=null;dates.forEach((d,i)=>{if(d.startsWith(mo)){const v=val(p,i);if(v!=null){s+=v;n++;end=v}}});
+      return `<td class="num ${mo===lm?'cur':''}">${n?fmt(p,s/n):'—'}<span class="e">${end!=null?fmt(p,end):''}</span></td>`}).join('')+'</tr>';
+  });
+  document.getElementById('mtab').innerHTML=h;
+}
+// ---- CSV
+document.getElementById('dlcsv').onclick=()=>{
+  const cp=D.pairs; const head=['Date'].concat(cp.map(label));
+  const lines=[head.join(',')].concat(rows.map(r=>[r[0]].concat(cp.map(p=>{const v=r[idx[p]];return v==null?'':v.toFixed(Math.max(dp(p)+2,4))})).join(',')));
+  const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fx_daily_'+dates[0]+'_'+lastDate+'.csv';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
+};
+// ---- footer
+const missing=[];cols.forEach(c=>{const m=dates.filter((d,i)=>val(c,i)==null);if(m.length)missing.push(label(c)+': '+m.join(', '))});
+const gapDays=(()=>{const s=new Set(dates),out=[];for(let d=dates[0];d<=lastDate;d=addDays(d,1)){const w=pd(d).getUTCDay();if(w>0&&w<6&&!s.has(d))out.push(d)}return out})();
+document.getElementById('foot').innerHTML=`<b>Notes 说明</b><ul>
+<li><b>Prototype only 仅为样板.</b> Sample rates are Yahoo Finance daily closes (chart API, symbols like EURUSD=X), <b>not</b> FX678. The production version will record 香港汇通财经 FX678 at one fixed time each weekday (time TBD 待定).</li>
+<li>Grid: 18 pairs on 2 pages — Page 1: ${D.pairs.slice(0,9).map(label).join(', ')}; Page 2: ${D.pairs.slice(9).map(label).join(', ')}. Business strip (Page 1): ${D.biz.map(label).join(', ')}.</li>
+<li>History ${dates[0]} → ${lastDate} (${dates.length} trading days). Days are London trading days; Yahoo "close" = last price of that day. Today's (${md(lastDate)}) row is intraday (as of ~${(D.asof.EURUSD||'').slice(11)} CST) and marked *. Built ${D.generated} CST.</li>
+<li>Weekdays with no quotes (market holidays), shown as —: ${gapDays.length?gapDays.join(', '):'none'}. Onshore CNY markets close for National Day in early October, so USD/CNY in the business strip may show flat prices on those days.</li>
+<li>Monthly table: average of daily closes (top) and month-end close (grey). CSV download = the 18 grid pairs, one row per day.</li>
+<li>Budget rates and alert thresholds are saved only in this browser (localStorage).</li></ul>`;
+renderBiz(); renderGrid(); renderMonthly();
+// ---- last updated + auto refresh
+const genMs=Date.parse(D.generated_utc||'');
+function renderUpd(){
+  const el=document.getElementById('upd'); if(!el)return;
+  let age='';
+  if(!isNaN(genMs)){const m=Math.max(0,Math.round((Date.now()-genMs)/60000));age=m<1?'just now 刚刚':m<60?`${m} min ago 分钟前`:m<48*60?`${Math.floor(m/60)} h ${m%60} min ago`:`${Math.floor(m/1440)} days ago 天前`;
+    const wd=new Date().getUTCDay(); const stale=m>150&&wd>=1&&wd<=5; el.classList.toggle('stale',stale);}
+  el.innerHTML=`<span class="dot"></span>Last updated 最后更新 <b>${D.generated}</b> (Shanghai 北京时间) · ${age}`+(D.live?` · <span class="tdy">${md(D.live)} = intraday*</span>`:` · latest close ${md(lastDate)}`);
+}
+renderUpd(); setInterval(renderUpd,60000);
+const loadedAt=Date.now(), RELOAD_MS=30*60000;
+function maybeReload(){if(document.visibilityState==='visible'&&Date.now()-loadedAt>RELOAD_MS){location.replace(location.pathname+'?r='+Date.now()+location.hash)}}
+setInterval(maybeReload,60000); document.addEventListener('visibilitychange',maybeReload);
+// ---- theme toggle
+const themeBtn=document.getElementById('themeBtn');
+function setTheme(th){document.documentElement.dataset.theme=th;lsSet('theme',th);themeBtn.innerHTML=th==='dark'?'☀ Light 浅色':'☾ Dark 深色';themeBtn.setAttribute('aria-pressed',th==='dark');themeBtn.setAttribute('aria-label',th==='dark'?'Switch to light theme':'Switch to dark theme')}
+themeBtn.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+setTheme(document.documentElement.dataset.theme==='light'?'light':'dark');
+// ---- tabs (hash routing)
+const PAGES=['p1','p2','cross','monthly'];
+const tabs=[...document.querySelectorAll('nav.tabs [role=tab]')];
+function show(pg,focus){
+  if(pg==='weekly'||pg==='p3')pg='p1';
+  if(!PAGES.includes(pg))pg='p1';
+  tabs.forEach(b=>{const on=b.dataset.page===pg;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;document.getElementById('page-'+b.dataset.page).hidden=!on;if(on&&focus)b.focus()});
+  document.getElementById('gridpages').hidden=!pg.startsWith('p');
+  if(location.hash!=='#'+pg)history.replaceState(null,'','#'+pg);
+}
+tabs.forEach((b,k)=>{
+  b.addEventListener('click',()=>{location.hash=b.dataset.page});
+  b.addEventListener('keydown',e=>{let n=null;if(e.key==='ArrowRight')n=(k+1)%tabs.length;else if(e.key==='ArrowLeft')n=(k-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;if(n!==null){e.preventDefault();location.hash=tabs[n].dataset.page;tabs[n].focus()}});
+});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,select,textarea')||e.altKey||e.ctrlKey||e.metaKey)return;const k=['1','2','3','4'].indexOf(e.key);if(k>=0){location.hash=PAGES[k]}});
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+show(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>

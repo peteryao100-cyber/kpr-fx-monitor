@@ -1,0 +1,6 @@
+raw/
+data.json
+fx_monitor.html
+__pycache__/
+*.png
+!apple-touch-icon.png

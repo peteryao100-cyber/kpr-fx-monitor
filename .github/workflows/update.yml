@@ -1,0 +1,40 @@
+name: Update FX monitor
+
+on:
+  schedule:
+    - cron: '17 * * * 1-5'   # hourly on weekdays (UTC)
+    - cron: '10 22 * * 1-5'  # shortly after the New York close, captures the daily close
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fx-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch rates and rebuild
+        run: |
+          for i in 1 2 3; do
+            python3 build.py --fetch --out index.html && break
+            echo "attempt $i failed, retrying in 60s"; sleep 60
+          done
+          test -s index.html
+          grep -q '"generated"' index.html
+      - name: Commit and push
+        run: |
+          git config user.name "fx-monitor-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "Update FX data $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') CST"
+          git push
